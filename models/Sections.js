@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const examSchema = new mongoose.Schema(
+const sectionSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -10,18 +10,15 @@ const examSchema = new mongoose.Schema(
     class: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Class",
+      required: true,
     },
 
-    subject: {
+    classTeacher: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Subject",
+      ref: "Teacher",
     },
-
-    examDate: Date,
-
-    totalMarks: Number,
   },
   { timestamps: true },
 );
 
-module.exports = mongoose.model("Exam", examSchema);
+module.exports = mongoose.model("Section", sectionSchema);
